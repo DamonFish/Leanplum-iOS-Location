@@ -22,7 +22,6 @@
 //  under the License.
 
 #import "LPLocationManager.h"
-
 @import Leanplum;
 
 #define LP_REGION_IDENTIFIER_PREFIX @"__leanplum"
@@ -570,7 +569,7 @@
     [geocoder reverseGeocodeLocation:location
                    completionHandler:^(NSArray<CLPlacemark *> *placemarks, NSError *error) {
         if (error) {
-            LPLog(LPVerbose, @"Geocoding failed: %@", error.localizedDescription);
+            LPLog(LPDebug, @"Geocoding failed: %@", error.localizedDescription);
         }
         CLPlacemark *placemark = placemarks.firstObject;
         [Leanplum setUserLocationAttributeWithLatitude:location.coordinate.latitude
